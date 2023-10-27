@@ -19,9 +19,8 @@ app.post("/form", async (req, res) => {
     const { firstname, lastname, email, subject, message } = req.body;
 
     if (!firstname || !lastname || !email || !subject || !message) {
-      return res.status(400).json({
-        message: "Tous les champs sont obligatoires!",
-      });
+      const response = "Tous les champs sont obligatoires!";
+      return res.status(400).json(response);
     }
     //Create a messagedata Obj to keep email infos
     const messageData = {
@@ -47,7 +46,7 @@ app.post("/form", async (req, res) => {
 app.get("/", (req, res) => {
   try {
     res.status(200).json({
-      message: "Welcome !!",
+      message: "Welcome back !!",
     });
   } catch (error) {
     res.status(500).json({
