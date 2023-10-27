@@ -56,6 +56,6 @@ app.get("*", (req, res) => {
     message: "Page does not exist!",
   });
 });
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
   console.log("Server started :-)");
 });
