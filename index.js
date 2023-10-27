@@ -18,6 +18,11 @@ app.post("/form", async (req, res) => {
   try {
     const { firstname, lastname, email, subject, message } = req.body;
 
+    if (!firstname || !lastname || !email || !subject || !message) {
+      return res.status(400).json({
+        message: "Tous les champs sont obligatoires!",
+      });
+    }
     //Create a messagedata Obj to keep email infos
     const messageData = {
       from: `${firstname} ${lastname} <${email}>`,
